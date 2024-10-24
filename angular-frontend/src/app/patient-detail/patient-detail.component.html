@@ -1,0 +1,12 @@
+<div class="patient-detail">
+  <h1>Patient Details</h1>
+
+  <form *ngIf="patient" (ngSubmit)="savePatient()">
+    <label for="full_name">Full Name</label>
+    <input type="text" id="full_name" [(ngModel)]="patient.full_name" name="full_name" required />
+
+    <!-- Add other fields similarly -->
+
+    <button type="submit">Save</button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1 class="name-of-app">Patient Management App</h1>
+    <nav class="navigation-bar">
+      <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Patients</a>
+      <a routerLink="/add-patient" routerLinkActive="active" ariaCurrentWhenActive="page">Add Patient</a>
+    </nav>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet> <!-- This is where routed components will be displayed -->
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2024 Patient Management App</p>
+  </footer>
+</div>

@@ -1,0 +1,32 @@
+<div class="patient-list">
+  <h1>Patients</h1>
+  <button class="add-button" (click)="goToAdd()">Add New Patient</button>
+
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="loading">Loading patients...</div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <!-- No patients found message -->
+  <div *ngIf="!loading && patients.length === 0" class="no-patients">
+    No patients found.
+  </div>
+
+  <!-- Patient list -->
+  <div *ngFor="let patient of patients" class="patient-card">
+    <!-- Patient image with a fallback -->
+    <img [src]="" alt="Patient Picture" class="patient-image" />
+
+    <div class="patient-info">
+      <h2>{{ patient.full_name }}</h2>
+      <p>Email: {{ patient.email }}</p>
+      <div class="actions">
+        <button (click)="viewPatient(patient.id)" class="view-button">View</button>
+        <button (click)="deletePatient(patient.id)" class="delete-button">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

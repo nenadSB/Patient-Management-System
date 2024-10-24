@@ -1,0 +1,61 @@
+<div class="add-patient-form">
+  <h1>Add New Patient</h1>
+
+  <form (ngSubmit)="addPatient()">
+    <div>
+      <label for="full_name">Full Name:</label>
+      <input type="text" id="full_name" [(ngModel)]="newPatient.full_name" name="full_name" required />
+    </div>
+
+    <div>
+      <label for="id_number">ID Number:</label>
+      <input type="text" id="id_number" [(ngModel)]="newPatient.id_number" name="id_number" required />
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="newPatient.email" name="email" required />
+    </div>
+
+    <div>
+      <label for="street_name">Street Name:</label>
+      <input type="text" id="street_name" [(ngModel)]="newPatient.street_name" name="street_name" required />
+    </div>
+
+    <div>
+      <label for="city">City:</label>
+      <input type="text" id="city" [(ngModel)]="newPatient.city" name="city" required />
+    </div>
+
+    <div>
+      <label for="zip_code">Zip Code:</label>
+      <input type="text" id="zip_code" [(ngModel)]="newPatient.zip_code" name="zip_code" required />
+    </div>
+
+    <div>
+      <label for="jpmg_number">JPMG Number:</label>
+      <input type="text" id="jpmg_number" [(ngModel)]="newPatient.jpmg_number" name="jpmg_number" required />
+    </div>
+
+    <div>
+      <label for="doctor_name">Doctor's Name:</label>
+      <input type="text" id="doctor_name" [(ngModel)]="newPatient.doctor_name" name="doctor_name" required />
+    </div>
+
+    <div>
+      <label for="treatment_duration">Treatment Duration (in days):</label>
+      <input type="number" id="treatment_duration" [(ngModel)]="newPatient.treatment_duration" name="treatment_duration" required />
+    </div>
+
+    <div>
+      <label for="notes">Notes:</label>
+      <textarea id="notes" [(ngModel)]="newPatient.notes" name="notes"></textarea>
+    </div>
+
+    <!-- Error message display -->
+    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <button type="submit">Add Patient</button>
+    <button type="button" (click)="navigateHome()">Cancel</button>
+  </form>
+</div>

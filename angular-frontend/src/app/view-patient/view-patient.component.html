@@ -1,0 +1,22 @@
+<div class="view-patient">
+  <h1>Patient Details</h1>
+
+  <div *ngIf="errorMessage; else patientDetails">
+    <p class="error">{{ errorMessage }}</p>
+  </div>
+
+  <ng-template #patientDetails>
+    <p><strong>Full Name:</strong> {{ patient.full_name }}</p>
+    <p><strong>ID Number:</strong> {{ patient.id_number }}</p>
+    <p><strong>Email:</strong> {{ patient.email }}</p>
+    <p><strong>Street Name:</strong> {{ patient.street_name }}</p>
+    <p><strong>City:</strong> {{ patient.city }}</p>
+    <p><strong>Zip Code:</strong> {{ patient.zip_code }}</p>
+    <p><strong>JMPG Number:</strong> patient here shoud go an img </p>
+    <p><strong>Doctor Name:</strong> {{ patient.doctor_name }}</p>
+    <p><strong>Treatment Duration:</strong> {{ patient.treatment_duration }} days</p>
+    <p><strong>Notes:</strong> {{ patient.notes }}</p>
+
+    <button (click)="goBack()">Back</button>
+  </ng-template>
+</div>

@@ -1,0 +1,121 @@
+// Color and typography variables
+$primary-color: #6a0dad; // Purple
+$secondary-color: #f5f5dc; // Beige
+$text-color: #fff; // White text for contrast
+$footer-bg-color: #4b0082; // Darker shade for the footer
+$link-color: #ffc107; // A complementary goldish color for links
+
+// Font and spacing variables
+$font-family: 'Arial', sans-serif;
+$padding: 16px;
+$border-radius: 8px;
+
+// Mixin for responsiveness
+@mixin respond-to($media) {
+  @if $media == 'phone' {
+    @media (max-width: 768px) { @content; }
+  } @else if $media == 'tablet' {
+    @media (max-width: 1024px) { @content; }
+  }
+}
+
+// Base styling for the body
+body {
+  font-family: $font-family;
+  background-color: $secondary-color;
+  margin: 0;
+  padding: 0;
+}
+
+// App container
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Header styling
+.app-header {
+  background-color: $primary-color;
+  padding: $padding;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-color;
+
+  // Logo or app name
+  .name-of-app {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  // Navigation bar
+  .navigation-bar {
+    a {
+      color: $link-color;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: $padding;
+      padding: $padding / 2;
+      transition: color 0.3s ease;
+      cursor: pointer; // Finger cursor on hover
+
+      &:hover {
+        color: lighten($link-color, 10%);
+      }
+
+      &.active {
+        border-bottom: 2px solid $link-color;
+      }
+    }
+  }
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    .navigation-bar {
+      margin-top: $padding / 2;
+      a {
+        margin-left: 0;
+        margin-right: $padding / 2;
+      }
+    }
+  }
+
+  @include respond-to('phone') {
+    flex-direction: column;
+    .navigation-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      a {
+        margin: $padding / 4 0;
+      }
+    }
+  }
+}
+
+// Main content
+main {
+  flex: 1; // Take up remaining space
+  padding: $padding;
+  background-color: $secondary-color;
+  color: $primary-color;
+
+  @include respond-to('phone') {
+    padding: $padding / 2;
+  }
+}
+
+// Footer styling
+.app-footer {
+  background-color: $footer-bg-color;
+  padding: $padding;
+  text-align: center;
+  color: $text-color;
+  font-size: 0.9rem;
+
+  p {
+    margin: 0;
+  }
+}
