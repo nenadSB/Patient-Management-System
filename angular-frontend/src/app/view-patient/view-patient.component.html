@@ -6,17 +6,59 @@
   </div>
 
   <ng-template #patientDetails>
-    <p><strong>Full Name:</strong> {{ patient.full_name }}</p>
-    <p><strong>ID Number:</strong> {{ patient.id_number }}</p>
-    <p><strong>Email:</strong> {{ patient.email }}</p>
-    <p><strong>Street Name:</strong> {{ patient.street_name }}</p>
-    <p><strong>City:</strong> {{ patient.city }}</p>
-    <p><strong>Zip Code:</strong> {{ patient.zip_code }}</p>
-    <p><strong>JMPG Number:</strong> patient here shoud go an img </p>
-    <p><strong>Doctor Name:</strong> {{ patient.doctor_name }}</p>
-    <p><strong>Treatment Duration:</strong> {{ patient.treatment_duration }} days</p>
-    <p><strong>Notes:</strong> {{ patient.notes }}</p>
+    <div class="patient-detail">
+      <div *ngIf="!isEditing; else editTemplate">
+        <p><strong>Full Name:</strong> {{ patient.full_name }}</p>
+        <p><strong>ID Number:</strong> {{ patient.id_number }}</p>
+        <p><strong>Email:</strong> {{ patient.email }}</p>
+        <p><strong>Street Name:</strong> {{ patient.street_name }}</p>
+        <p><strong>City:</strong> {{ patient.city }}</p>
+        <p><strong>Zip Code:</strong> {{ patient.zip_code }}</p>
+        <p><strong>JMPG Number:</strong> <img [src]="" alt="Patient JMPG" /></p>
+        <p><strong>Doctor Name:</strong> {{ patient.doctor_name }}</p>
+        <p><strong>Treatment Duration:</strong> {{ patient.treatment_duration }} days</p>
+        <p><strong>Notes:</strong> {{ patient.notes }}</p>
+      </div>
 
-    <button (click)="goBack()">Back</button>
+      <!-- Template for editing patient details -->
+      <ng-template #editTemplate>
+        <label for="fullName">Full Name</label>
+        <input id="fullName" [(ngModel)]="patient.full_name" type="text" />
+
+        <label for="idNumber">ID Number</label>
+        <input id="idNumber" [(ngModel)]="patient.id_number" type="text" />
+
+        <label for="email">Email</label>
+        <input id="email" [(ngModel)]="patient.email" type="email" />
+
+        <label for="streetName">Street Name</label>
+        <input id="streetName" [(ngModel)]="patient.street_name" type="text" />
+
+        <label for="city">City</label>
+        <input id="city" [(ngModel)]="patient.city" type="text" />
+
+        <label for="zipCode">Zip Code</label>
+        <input id="zipCode" [(ngModel)]="patient.zip_code" type="text" />
+
+        <label for="jmpgNumber">JMPG Number</label>
+        <input id="jmpgNumber" type="text" />
+
+        <label for="doctorName">Doctor Name</label>
+        <input id="doctorName" [(ngModel)]="patient.doctor_name" type="text" />
+
+        <label for="treatmentDuration">Treatment Duration (days)</label>
+        <input id="treatmentDuration" [(ngModel)]="patient.treatment_duration" type="number" />
+
+        <label for="notes">Notes</label>
+        <textarea id="notes" [(ngModel)]="patient.notes"></textarea>
+      </ng-template>
+    </div>
+
+    <div class="button-group">
+      <button *ngIf="!isEditing" (click)="editPatient()">Edit</button>
+      <button *ngIf="isEditing" (click)="saveChanges()">Save</button>
+      <button (click)="deletePatient(patient.id)">Delete</button>
+      <button (click)="goBack()">Back</button>
+    </div>
   </ng-template>
 </div>
