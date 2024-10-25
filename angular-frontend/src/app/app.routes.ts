@@ -9,7 +9,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'add-patient', component: AddPatientComponent },
   { path: 'patients/:id', component: PatientDetailComponent },
-  { path: 'view-patient/id', component: ViewPatientComponent},
+  { path: 'view-patient/:id', component: ViewPatientComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home on empty path
   { path: '**', redirectTo: '/home' } // Wildcard route for 404
 ];

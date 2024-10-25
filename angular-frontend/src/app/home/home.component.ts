@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   // Navigate to patient detail view
   viewPatient(id: number): void {
-    this.router.navigate(['/patient-detail', id]);  // Navigating to patient detail with id
+    this.router.navigate(['/view-patient', id]);  // Navigate to the correct patient detail route
   }
 
   // Delete patient and reload the list
@@ -64,6 +64,6 @@ export class HomeComponent implements OnInit {
 
   // Navigate to add patient form
   goToAdd(): void {
-    this.router.navigate(['/add-patient']);  // Navigating to add patient form
+    this.router.navigate(['/add-patient']);  // Navigate to add patient form
   }
 }
