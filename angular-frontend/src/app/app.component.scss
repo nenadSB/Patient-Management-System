@@ -1,3 +1,6 @@
+// Importing Sass modules
+@use 'sass:math';
+
 // Color and typography variables
 $primary-color: #6a0dad; // Purple
 $secondary-color: #f5f5dc; // Beige
@@ -56,12 +59,17 @@ body {
       text-decoration: none;
       font-weight: bold;
       margin-left: $padding;
-      padding: $padding / 2;
-      transition: color 0.3s ease;
-      cursor: pointer; // Finger cursor on hover
+      padding: math.div($padding, 2);
+      transition: color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
 
       &:hover {
         color: lighten($link-color, 10%);
+        transform: scale(1.05); // Hover effect
+      }
+
+      &:focus {
+        outline: 2px solid $link-color; // Accessible focus outline
       }
 
       &.active {
@@ -73,10 +81,10 @@ body {
   @include respond-to('tablet') {
     flex-direction: column;
     .navigation-bar {
-      margin-top: $padding / 2;
+      margin-top: math.div($padding, 2);
       a {
         margin-left: 0;
-        margin-right: $padding / 2;
+        margin-right: math.div($padding, 2);
       }
     }
   }
@@ -89,7 +97,7 @@ body {
       align-items: center;
 
       a {
-        margin: $padding / 4 0;
+        margin: math.div($padding, 4) 0;
       }
     }
   }
@@ -97,13 +105,13 @@ body {
 
 // Main content
 main {
-  flex: 1; // Take up remaining space
+  flex: 1;
   padding: $padding;
   background-color: $secondary-color;
   color: $primary-color;
 
   @include respond-to('phone') {
-    padding: $padding / 2;
+    padding: math.div($padding, 2);
   }
 }
 
