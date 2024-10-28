@@ -1,0 +1,134 @@
+// Colors from previous design
+$primary-color: #4caf50; // Green
+$secondary-color: #ffffff; // White
+$text-color: #333333; // Dark text
+$background-color: #f9f9f9;
+$button-color: #388e3c; // Slightly darker green for buttons
+
+// Base styles for the container and headings
+.patient-detail-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: $background-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: $primary-color;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .patient-info,
+  .patient-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  label {
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.75rem;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    color: $text-color;
+    background-color: $secondary-color;
+
+    &:focus {
+      border-color: darken($primary-color, 10%);
+      outline: none;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+}
+
+// Button styles
+button {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: $secondary-color;
+  background-color: $button-color;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($button-color, 5%);
+  }
+
+  &.cancel {
+    background-color: lighten($button-color, 10%);
+  }
+}
+
+// Error message
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+// Loading spinner or message
+.loading {
+  text-align: center;
+  font-size: 1rem;
+  color: $primary-color;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .patient-detail-container {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    input,
+    textarea {
+      font-size: 0.9rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .patient-detail-container {
+    padding: 0.5rem;
+
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    input,
+    textarea {
+      font-size: 0.85rem;
+    }
+
+    button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+    }
+  }
+}

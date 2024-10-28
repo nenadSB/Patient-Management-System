@@ -1,99 +1,103 @@
 .patient-list {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px; // Limit the width of the patient list
+  margin: 0 auto; // Center the list
   padding: 20px;
 
   h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #4a148c;  // Purple color
+    text-align: center; // Center the header
+    margin-bottom: 20px; // Space below the header
+    color: #4a148c; // Purple color
   }
 
   .add-button {
-    display: block;
-    margin: 0 auto 20px auto;
-    padding: 10px 20px;
-    background-color: #d1c4e9;  // Beige color
-    color: #4a148c;  // Purple text
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
+    display: block; // Make the button block-level
+    margin: 0 auto 20px; // Center the button and space below
+    padding: 10px 20px; // Padding for the button
+    background-color: #d1c4e9; // Beige color
+    color: #4a148c; // Purple text
+    border: none; // No border
+    cursor: pointer; // Pointer cursor on hover
+    border-radius: 5px; // Rounded corners
+    font-weight: bold; // Bold text
+
     &:hover {
-      background-color: #b39ddb;  // Darker beige
+      background-color: #b39ddb; // Darker beige on hover
     }
   }
 
   .loading {
-    text-align: center;
-    font-size: 18px;
-    color: #9c27b0;  // Purple color
+    text-align: center; // Center the loading message
+    font-size: 18px; // Font size for loading text
+    color: #9c27b0; // Purple color
   }
 
   .error-message {
-    color: #f44336;  // Red for errors
-    text-align: center;
+    color: #f44336; // Red for errors
+    text-align: center; // Center the error message
   }
 
   .no-patients {
-    text-align: center;
-    font-size: 18px;
-    color: #757575;  // Grey for no data
+    text-align: center; // Center the no patients message
+    font-size: 18px; // Font size for no patients text
+    color: #757575; // Grey for no data
   }
 
   .patient-card {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    background-color: #f5f5f5;
+    display: flex; // Flex display for the card
+    align-items: center; // Center items vertically
+    margin-bottom: 20px; // Space below each card
+    padding: 15px; // Padding inside the card
+    border: 1px solid #e0e0e0; // Light grey border
+    border-radius: 10px; // Rounded corners
+    background-color: #f5f5f5; // Light background color
 
     .patient-image {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-right: 20px;
+      width: 100px; // Fixed width for the image
+      height: 100px; // Fixed height for the image
+      object-fit: cover; // Cover the area without distortion
+      border-radius: 50%; // Circular image
+      margin-right: 20px; // Space to the right
     }
 
     .patient-info {
-      flex: 1;
+      flex: 1; // Take the remaining space
 
       h2 {
-        margin: 0;
-        color: #4a148c;  // Purple
+        margin: 0; // Remove default margin
+        color: #4a148c; // Purple color
       }
 
       p {
-        margin: 5px 0;
-        color: #616161;  // Dark grey
+        margin: 5px 0; // Space above and below paragraphs
+        color: #616161; // Dark grey
       }
 
       .actions {
-        margin-top: 10px;
+        margin-top: 10px; // Space above the actions
+
         button {
-          margin-right: 10px;
-          padding: 8px 15px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
+          margin-right: 10px; // Space to the right for buttons
+          padding: 8px 15px; // Padding inside buttons
+          border: none; // No border
+          border-radius: 5px; // Rounded corners
+          cursor: pointer; // Pointer cursor on hover
         }
 
         .view-button {
-          background-color: #81c784;  // Green
-          color: white;
+          background-color: #81c784; // Green for view button
+          color: white; // White text
+
           &:hover {
-            background-color: #66bb6a;  // Darker green
+            background-color: #66bb6a; // Darker green on hover
           }
         }
 
         .delete-button {
-          background-color: #e57373;  // Red
-          color: white;
+          background-color: #e57373; // Red for delete button
+          color: white; // White text
+
           &:hover {
-            background-color: #ef5350;  // Darker red
+            background-color: #ef5350; // Darker red on hover
           }
         }
       }
@@ -104,17 +108,17 @@
 // Responsive design for smaller screens
 @media (max-width: 768px) {
   .patient-card {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; // Stack items vertically
+    align-items: flex-start; // Align to the left
 
     .patient-image {
-      margin-bottom: 10px;
+      margin-bottom: 10px; // Space below the image
     }
 
     .actions {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
+      display: flex; // Flex display for actions
+      justify-content: space-between; // Space between buttons
+      width: 100%; // Full width for buttons
     }
   }
 }

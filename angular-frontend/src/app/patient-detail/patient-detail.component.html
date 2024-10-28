@@ -1,12 +1,121 @@
-<div class="patient-detail">
-  <h1>Patient Details</h1>
+<div class="patient-detail" *ngIf="patient; else loadingOrError">
+  <h2 class="patient-detail__title">Patient Details</h2>
 
-  <form *ngIf="patient" (ngSubmit)="savePatient()">
-    <label for="full_name">Full Name</label>
-    <input type="text" id="full_name" [(ngModel)]="patient.full_name" name="full_name" required />
+  <form class="patient-detail__form" (ngSubmit)="savePatient()">
+    <div class="form-group">
+      <label for="full_name">Full Name:</label>
+      <input
+        type="text"
+        id="full_name"
+        [(ngModel)]="patient.full_name"
+        name="full_name"
+        required
+      />
+    </div>
 
-    <!-- Add other fields similarly -->
+    <div class="form-group">
+      <label for="id_number">ID Number:</label>
+      <input
+        type="text"
+        id="id_number"
+        [(ngModel)]="patient.id_number"
+        name="id_number"
+        required
+      />
+    </div>
 
-    <button type="submit">Save</button>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="patient.email"
+        name="email"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="street_name">Street Name:</label>
+      <input
+        type="text"
+        id="street_name"
+        [(ngModel)]="patient.street_name"
+        name="street_name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input
+        type="text"
+        id="city"
+        [(ngModel)]="patient.city"
+        name="city"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="zip_code">Zip Code:</label>
+      <input
+        type="text"
+        id="zip_code"
+        [(ngModel)]="patient.zip_code"
+        name="zip_code"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="jpmg_number">JPMG Number:</label>
+      <input
+        type="text"
+        id="jpmg_number"
+        [(ngModel)]="patient.jpmg_number"
+        name="jpmg_number"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="notes">Notes:</label>
+      <textarea
+        id="notes"
+        [(ngModel)]="patient.notes"
+        name="notes"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="doctor_name">Doctor's Name:</label>
+      <input
+        type="text"
+        id="doctor_name"
+        [(ngModel)]="patient.doctor_name"
+        name="doctor_name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_duration">Treatment Duration (days):</label>
+      <input
+        type="number"
+        id="treatment_duration"
+        [(ngModel)]="patient.treatment_duration"
+        name="treatment_duration"
+        required
+      />
+    </div>
+
+    <button type="submit" class="button button--primary">Save</button>
+    <button type="button" (click)="cancel()" class="button button--secondary">Cancel</button>
   </form>
 </div>
+
+<ng-template #loadingOrError>
+  <p *ngIf="loading">Loading...</p>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+</ng-template>
