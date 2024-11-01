@@ -14,7 +14,7 @@ $background-color: #ffffff; // White background for the login form
   background-color: $secondary-color; // Light gray background
   padding: 2rem; // Padding around the container
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 96.5%; // Make it responsive to the screen width
+  width: 94.5%; // Make it responsive to the screen width
 
   @media (max-width: 768px) { // Tablet and mobile devices
     padding: 1rem; // Reduce padding on smaller screens

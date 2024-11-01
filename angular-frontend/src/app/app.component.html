@@ -2,8 +2,9 @@
   <header class="app-header">
     <h1 class="name-of-app">Patient Management App</h1>
     <nav class="navigation-bar">
-      <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Patients</a>
-      <a routerLink="/add-patient" routerLinkActive="active" ariaCurrentWhenActive="page">Add Patient</a>
+      <a class="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Patients</a>
+      <a class="/add-patient" routerLinkActive="active" ariaCurrentWhenActive="page">Add Patient</a>
+      <button (click)="logout()" class="logout-button" *ngIf="isAuthenticated()">Log Out</button>
     </nav>
   </header>
 
