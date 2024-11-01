@@ -91,7 +91,6 @@ body {
     }
   }
 
-
   @include respond-to('tablet') {
     flex-direction: column;
     .navigation-bar {
