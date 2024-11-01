@@ -1,17 +1,37 @@
-import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
+import { Injectable } from '@angular/core';
 
-import { authGuard } from './auth.guard';
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  private isAuthenticated: boolean = false;
 
-describe('authGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => authGuard(...guardParameters));
+  constructor() {
+    // Check local storage on initialization to maintain state
+    this.isAuthenticated = this.checkAuth();
+  }
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-  });
+  login(email: string, password: string): boolean {
+    // Replace with real authentication logic (API call)
+    if (email === 'admin@example.com' && password === 'password123') {
+      this.isAuthenticated = true;
+      localStorage.setItem('isAuthenticated', 'true');
+      return true;
+    }
+    return false;
+  }
 
-  it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
-  });
-});
+  logout(): void {
+    this.isAuthenticated = false;
+    localStorage.removeItem('isAuthenticated');
+  }
+
+  checkAuth(): boolean {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  }
+
+  // New method to get authentication status
+  getAuthStatus(): boolean {
+    return this.isAuthenticated;
+  }
+}

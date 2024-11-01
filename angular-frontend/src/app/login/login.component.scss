@@ -1,54 +1,100 @@
+// login.component.scss
+
+$primary-color: #6a1b9a; // Purple color for primary theme
+$secondary-color: #f3f4f6; // Light gray for backgrounds
+$error-color: #f44336; // Error color
+$background-color: #ffffff; // White background for the login form
+
 .login-container {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; // Full viewport height
+  background-color: $secondary-color; // Light gray background
+  padding: 2rem; // Padding around the container
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 96.5%; // Make it responsive to the screen width
+
+  @media (max-width: 768px) { // Tablet and mobile devices
+    padding: 1rem; // Reduce padding on smaller screens
+  }
 }
 
 h2 {
-  text-align: center;
-  color: #4caf50;
-  margin-bottom: 20px;
+  color: $primary-color;
+  margin-bottom: 2rem;
+  font-size: 1.5rem; // Responsive font size
+
+  @media (max-width: 768px) { // Tablet and mobile devices
+    font-size: 1.25rem; // Smaller font size for smaller screens
+    margin-bottom: 1.5rem; // Adjust margin
+  }
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
+  width: 100%; // Full width for input fields
+  max-width: 400px; // Max width for the form fields
+  padding: 0 1rem; // Equal padding on left and right for balance
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1rem; // Responsive font size
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem; // Smaller font size for smaller screens
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem; // Increased padding for better touch targets
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    font-size: 1rem; // Responsive font size
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem; // Smaller font size for smaller screens
+    }
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+
+  .error {
+    color: $error-color;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  color: #333;
-}
-
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4caf50;
+.submit-button {
+  background-color: $primary-color;
   color: white;
+  padding: 0.75rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
-}
+  transition: background-color 0.3s;
+  font-size: 1rem; // Responsive font size
+  margin-top: 1rem; // Space between the button and form elements
 
-button:disabled {
-  background-color: #ccc;
-}
+  @media (max-width: 768px) {
+    font-size: 0.9rem; // Smaller font size for smaller screens
+  }
 
-.error {
-  color: red;
-  font-size: 0.875em;
-  margin-top: 5px;
-  text-align: center;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 }
