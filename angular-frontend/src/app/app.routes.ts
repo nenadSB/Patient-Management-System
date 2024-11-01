@@ -3,13 +3,15 @@ import { HomeComponent } from './home/home.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 import { ViewPatientComponent } from './view-patient/view-patient.component';
-
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'add-patient', component: AddPatientComponent },
-  { path: 'patients/:id', component: PatientDetailComponent },
-  { path: 'view-patient/:id', component: ViewPatientComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home on empty path
-  { path: '**', redirectTo: '/home' } // Wildcard route for 404
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'add-patient', component: AddPatientComponent, canActivate: [AuthGuard] },
+  { path: 'patients/:id', component: PatientDetailComponent, canActivate: [AuthGuard] },
+  { path: 'view-patient/:id', component: ViewPatientComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' },
 ];

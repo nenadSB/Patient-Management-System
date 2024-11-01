@@ -6,7 +6,7 @@
   </div>
 
   <ng-template #patientDetails>
-    <div class="patient-detail">
+    <div class="patient-detail" *ngIf="patient; else loading">
       <div *ngIf="!isEditing; else editTemplate">
         <p><strong>Full Name:</strong> {{ patient.full_name }}</p>
         <p><strong>ID Number:</strong> {{ patient.id_number }}</p>
@@ -14,13 +14,11 @@
         <p><strong>Street Name:</strong> {{ patient.street_name }}</p>
         <p><strong>City:</strong> {{ patient.city }}</p>
         <p><strong>Zip Code:</strong> {{ patient.zip_code }}</p>
-        <p><strong>JMPG Number:</strong> <img [src]="" alt="Patient JMPG" /></p>
         <p><strong>Doctor Name:</strong> {{ patient.doctor_name }}</p>
         <p><strong>Treatment Duration:</strong> {{ patient.treatment_duration }} days</p>
         <p><strong>Notes:</strong> {{ patient.notes }}</p>
       </div>
 
-      <!-- Template for editing patient details -->
       <ng-template #editTemplate>
         <label for="fullName">Full Name</label>
         <input id="fullName" [(ngModel)]="patient.full_name" type="text" />
@@ -40,9 +38,6 @@
         <label for="zipCode">Zip Code</label>
         <input id="zipCode" [(ngModel)]="patient.zip_code" type="text" />
 
-        <label for="jmpgNumber">JMPG Number</label>
-        <input id="jmpgNumber" type="text" />
-
         <label for="doctorName">Doctor Name</label>
         <input id="doctorName" [(ngModel)]="patient.doctor_name" type="text" />
 
@@ -54,10 +49,14 @@
       </ng-template>
     </div>
 
+    <ng-template #loading>
+      <p>Loading patient data...</p>
+    </ng-template>
+
     <div class="button-group">
       <button *ngIf="!isEditing" (click)="editPatient()">Edit</button>
       <button *ngIf="isEditing" (click)="saveChanges()">Save</button>
-      <button (click)="deletePatient(patient.id)">Delete</button>
+      <button *ngIf="patient" (click)="deletePatient(patient.id)">Delete</button>
       <button (click)="goBack()">Back</button>
     </div>
   </ng-template>

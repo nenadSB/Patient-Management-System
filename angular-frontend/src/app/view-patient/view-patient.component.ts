@@ -15,9 +15,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ViewPatientComponent implements OnInit {
   patientId!: number;
-  patient!: Patient;
+  patient: Patient | undefined;  // Changed to undefined
   errorMessage: string | null = null;
-  isEditing: boolean = false; // New variable to manage edit state
+  isEditing: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,14 +45,15 @@ export class ViewPatientComponent implements OnInit {
   }
 
   editPatient(): void {
-    this.isEditing = true; // Set edit mode
+    this.isEditing = true;
   }
 
   saveChanges(): void {
+    if (!this.patient) return; // Prevent errors if patient is undefined
     this.patientService.updatePatient(this.patientId, this.patient).subscribe({
       next: () => {
         alert('Patient details updated successfully');
-        this.isEditing = false; // Exit edit mode after saving
+        this.isEditing = false;
       },
       error: (error: HttpErrorResponse) => {
         this.errorMessage = 'Failed to update patient. Please try again.';
@@ -80,4 +81,3 @@ export class ViewPatientComponent implements OnInit {
     this.router.navigate(['/patients']);
   }
 }
-
