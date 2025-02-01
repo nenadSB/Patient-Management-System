@@ -1,66 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The **Patient Management System** is a **full-stack CRUD application** built with **Laravel (backend)**, **Angular (frontend)**, and **MySQL (database)**. It enables users to **log in/log out**, **add, edit, update, delete**, and **view detailed patient information** through a modern and responsive interface.  
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### **Tools and Technologies Used**  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### **1. Backend (Laravel)**
+- **Laravel (Latest Version)**  
+  - **Purpose**: Manages business logic, authentication, and API endpoints.  
+  - **Features**:  
+    - **Eloquent ORM** for database interactions.  
+    - **Authentication & Middleware** for secure access control.  
+    - **RESTful API** for frontend communication.  
+    - **Validation & Security** for form inputs.  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### **2. Frontend (Angular)**
+- **Angular (Latest Version)**  
+  - **Purpose**: Provides a modern, single-page application (SPA) experience.  
+  - **Features**:  
+    - **Component-based architecture** for modular UI.  
+    - **Angular Services** for API communication with Laravel.  
+    - **Reactive Forms & Validation** for secure data input.  
+    - **Routing & Guards** for user authentication.  
 
-## Learning Laravel
+#### **3. Database (MySQL)**
+- **MySQL**  
+  - **Purpose**: Stores patient records securely.  
+  - **Features**:  
+    - Efficient **CRUD operations** for patient management.  
+    - **Relational data handling** with Laravel's Eloquent ORM.  
+    - **Indexes & Queries** for optimized search functionality.  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### **4. Core Features & Functionalities**
+- **User Authentication**  
+  - **Login/Logout** system using Laravel Passport/Sanctum (API tokens).  
+  - **Role-based access control (RBAC)** for different user types.  
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Patient CRUD Operations**  
+  - **Add/Edit/Delete** patient details.  
+  - View **detailed patient profiles**.  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **RESTful API (Laravel API + Angular Frontend)**  
+  - Angular communicates with Laravel via HTTP requests.  
+  - API responses are in **JSON format**.  
 
-## Laravel Sponsors
+- **Search & Pagination**  
+  - **Filter patients** dynamically using Laravel Query Builder.  
+  - **Paginate large datasets** for improved performance.  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Validation & Security**  
+  - **Laravel Form Request Validation** for backend.  
+  - **Angular Reactive Forms** for frontend validation.  
+  - **CSRF Protection** to prevent unauthorized actions.  
 
-### Premium Partners
+- **Responsive UI & Bootstrap 5 (Optional)**  
+  - **Bootstrap 5 / Angular Material** for an intuitive UI.  
+  - **Mobile-friendly layout** for accessibility.  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+#### **5. Deployment & Hosting**
+- **Laravel Artisan (Backend Tasks)**  
+  - `php artisan serve` – Run local Laravel development server.  
+  - `php artisan migrate` – Create database tables.  
 
-## Contributing
+- **Angular CLI (Frontend Tasks)**  
+  - `ng serve` – Run local Angular development server.  
+  - `ng build --prod` – Build optimized production files.  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Apache / Nginx (Production Server)**  
+  - Hosts Laravel API and Angular frontend.  
 
-## Code of Conduct
+- **Docker / DigitalOcean / Heroku (Optional)**  
+  - Provides easy deployment solutions.  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### **6. Environment & Dependencies**
+- **Composer** – Laravel package manager.  
+- **NPM** – Angular package manager.  
+- **PHP** – Required for Laravel.  
+- **MySQL** – Database for storing patient data.  
+- **Bootstrap 5 / Angular Material (Optional)** – Enhances UI.  
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### **Summary of Tools Used**
+1. **Laravel** – Backend framework for handling patient data.  
+2. **Angular** – Frontend framework for a modern UI/UX.  
+3. **MySQL** – Relational database for secure data storage.  
+4. **Eloquent ORM** – Simplifies database queries in Laravel.  
+5. **Laravel API & Angular Services** – Enables smooth frontend-backend communication.  
+6. **Bootstrap 5 / Angular Material (Optional)** – Improves UI design.  
+7. **Authentication & RBAC** – Ensures secure login and user roles.  
+8. **Pagination & Search** – Optimizes patient record management.  
+9. **Docker/DigitalOcean/Heroku (Optional)** – For deployment.  
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This **scalable and secure Patient Management System** is designed for **efficiency and usability**, offering a seamless experience for healthcare professionals. 🚀
